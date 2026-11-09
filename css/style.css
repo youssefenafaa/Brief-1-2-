@@ -65,7 +65,7 @@ header{
     color: wheat;
     background-color: rgb(71, 71, 102);
     width: 250Px;
-    height:400px;
+    height:500px;
     padding: 20px;
     border-radius: 10px;
     
@@ -74,21 +74,35 @@ header{
       color: wheat;
     background-color: rgb(71, 71, 102);
     width: 250Px;
-    height:400px;
+    height:500px;
     padding: 20px;
     border-radius: 10px;
 }
-.cards3{
+.cards3 {
     color: wheat;
     background-color: rgb(71, 71, 102);
     width: 250Px;
-    height:400px;
+    height:500px;
     padding: 20px;
     border-radius: 10px;
 }
 
 body section h4{
     color:rgb(240, 179, 99);
-    padding-left: 85px;
+    padding-left: 55px;
 
+}
+.Partier-Cree{
+      color: wheat;
+    background-color: rgb(71, 71, 102);
+    width: 250Px;
+    height:600px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 80px;
+}
+.butAjouer{
+    padding-top: 20px;
+    padding-left: 30px;
 }
