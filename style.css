@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(51, 37, 81);
+    color: white;
+    border-radius: 10px;
+    height: 100px;
+    
+}
+
+#head-input input{
+    width:250px;
+    height:20px ;
+    border-radius: 10px;
+     border: solid  wheat ;
+
+}
+/* #slect{
+    padding-top: 25px;
+} */
+#slect select{
+    width:100px;
+    height:25px ;
+    border-radius: 5px;
+    border: solid  wheat ;
+
+
+}
+
+#butCree{
+    width: 100px;
+    height: 30px;
+    color:white;
+    border-radius: 5px;
+    background-color: rgb(16, 14, 65);
+   display: flex;
+   align-items: center;
+   gap: 10px;
+
+}
+#butCree img{
+    width: 18px;
+
+}
+.cars-section{
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+
+}
+.cards1{
+    color: wheat;
+    background-color: rgb(71, 71, 102);
+    width: 250Px;
+    height:400px;
+    padding: 20px;
+    border-radius: 10px;
+    
+}
+.cards2{
+      color: wheat;
+    background-color: rgb(71, 71, 102);
+    width: 250Px;
+    height:400px;
+    padding: 20px;
+    border-radius: 10px;
+}
+.cards3{
+    color: wheat;
+    background-color: rgb(71, 71, 102);
+    width: 250Px;
+    height:400px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+body section h4{
+    color:rgb(240, 179, 99);
+    padding-left: 85px;
+
+}
