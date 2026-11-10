@@ -68,6 +68,7 @@ header{
     height:500px;
     padding: 20px;
     border-radius: 10px;
+    margin-bottom: 15px;
     
 }
 .cards2{
@@ -77,6 +78,7 @@ header{
     height:500px;
     padding: 20px;
     border-radius: 10px;
+     margin-bottom: 15px;
 }
 .cards3 {
     color: wheat;
@@ -85,11 +87,14 @@ header{
     height:500px;
     padding: 20px;
     border-radius: 10px;
+     margin-bottom: 15px;
 }
 
 body section h4{
     color:rgb(240, 179, 99);
     padding-left: 55px;
+    background-color: rgb(71, 71, 102);
+    border-radius: 5px;
 
 }
 .Partier-Cree{
@@ -105,4 +110,7 @@ body section h4{
 .butAjouer{
     padding-top: 20px;
     padding-left: 30px;
+}
+.hiden{
+    display: none;
 }
