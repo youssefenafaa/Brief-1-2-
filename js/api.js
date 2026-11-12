@@ -1,4 +1,4 @@
-export let product =[]
+
  
 export function loadData(resolved,rejected){
 
@@ -7,7 +7,7 @@ export function loadData(resolved,rejected){
 })
 .then((res) =>{
    if (!res.ok) {
-        throw new Error("Erreur HTTP : " + response.status);}
+        throw new Error("Erreur HTTP : " + res.status);}
        
  return res.json()})
 
