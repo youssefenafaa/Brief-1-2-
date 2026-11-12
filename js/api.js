@@ -12,8 +12,8 @@ export function loadData(resolved,rejected){
  return res.json()})
 
 .then(data =>{
-    product=data
-    resolved(product)
+   
+    resolved(data)
      
     // console.log(product)
     // affiche(product)
