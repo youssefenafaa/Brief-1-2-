@@ -1,16 +1,22 @@
 
-import {product , loadData} from './api.js'
+import {filterData, loadData} from './api.js'
 // console.log(loadData)
 
 // let x=[]
 
 document.addEventListener("DOMContentLoaded",()=>{
     loadData(afficheData,handelErreur)
+   
 })
 
 
 function afficheData(cards){
     // console.log(cards)
+    document.querySelector(".secCards1").innerHTML = "<h4>To do</h4>";
+
+document.querySelector(".secCards2").innerHTML = "<h4>In Progress</h4>";
+
+document.querySelector(".seccards3").innerHTML = "<h4>Done</h4>";
 
  cards.forEach(element => {
     if(element.status=="todo"){
@@ -242,3 +248,23 @@ function ValideDateFin(date){
    
 
 }
+
+
+
+
+
+
+
+
+
+const inputRecherche=document.querySelector(".recherche")
+
+
+
+// filter par proprity
+const filterSlectPriority=document.querySelector("#selectPriority")
+filterSlectPriority.addEventListener("change",()=>{
+    filterData(afficheData,handelErreur,filterSlectPriority.value)
+})
+
+
