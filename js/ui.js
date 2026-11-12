@@ -258,6 +258,19 @@ function ValideDateFin(date){
 
 
 const inputRecherche=document.querySelector(".recherche")
+function recherche(){
+    let value=inputRecherche.value.toLowerCase().trim()
+
+    loadData((data)=>{
+let result=data.filter(card=>{
+    return card.title.toLowerCase().includes(value) || card.assignee.toLowerCase().includes(value) 
+    || card.status.toLowerCase().includes(value)
+})
+ afficheData(result)
+    }   ,handelErreur)
+
+}
+inputRecherche.addEventListener("input",recherche);
 
 
 
