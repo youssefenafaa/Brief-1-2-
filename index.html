@@ -31,7 +31,7 @@
             
           </section>
           <section class="secBut">
-                <button type="button" id="butCree"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACC0lEQVR4nO2ay0rDQBRAs9K6UCpodacfI4qg6NLHN0jFv9C6UBTErZ+gLeofFHFtW+3Kx0asa6vikQuzCDLGPCbJTPBAIZAmM4eZ3Nw7E8/7p6AAo8AyUAMaQBt4BfrqJ8ctdU7+swSUPRsABoF14BL4JDpyzTmwJvfychAYAraAJ8zxCGwCpawk5oEu6XEHzKU9jfbJjhMZedMSE8A12XMFVExJTKvhzotb6UNSiXEVRvOmC0zGlSjlNJ2Cpln0EA0cYR8HcUKsrcxGCbMdU6367muKu1AvTfXGxmIRoRpmNCRVsF3kIfDBVwkgDogIq0EiksW6ItIIqifipOJ5iXwAIzoRKYpwSERY0Ins4p7Ijk5ESlDXRE51IpJluibS1on0HBR51on0o3YuLQjPW6FFeqRAjM4lnlrGMt4MRVqFDr81B0W2C52ilB1LGt+1SaNq7MIhkbpWQjUmq+KuiKwUpdQd+FVENShL+7aLbARK+EalbbHIbegVR9mfwE6+gJlQEj6ZQ+xjL5KEb4rJwrEtNP98wANkxizaVpiIJfFjoyeVMjgkHWAqkYRPppLTNGvKZpMRCc1mqESOLDhOde9d9idSnmrtyCE24ehUVapgint5Y+f1BYQIrarqUtZioyLX1CUBjB1aTSO1AbAoy5jAmfqA5sX3UY0c30h5KpWdFEXAsPGO/OPZwTceu1a85MkFnwAAAABJRU5ErkJggg==" alt="plus"><span><strong>Cree</strong></span></button>
+                <button type="button" id="butCree" class="btn btn-outline-primary"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACC0lEQVR4nO2ay0rDQBRAs9K6UCpodacfI4qg6NLHN0jFv9C6UBTErZ+gLeofFHFtW+3Kx0asa6vikQuzCDLGPCbJTPBAIZAmM4eZ3Nw7E8/7p6AAo8AyUAMaQBt4BfrqJ8ctdU7+swSUPRsABoF14BL4JDpyzTmwJvfychAYAraAJ8zxCGwCpawk5oEu6XEHzKU9jfbJjhMZedMSE8A12XMFVExJTKvhzotb6UNSiXEVRvOmC0zGlSjlNJ2Cpln0EA0cYR8HcUKsrcxGCbMdU6367muKu1AvTfXGxmIRoRpmNCRVsF3kIfDBVwkgDogIq0EiksW6ItIIqifipOJ5iXwAIzoRKYpwSERY0Ins4p7Ijk5ESlDXRE51IpJluibS1on0HBR51on0o3YuLQjPW6FFeqRAjM4lnlrGMt4MRVqFDr81B0W2C52ilB1LGt+1SaNq7MIhkbpWQjUmq+KuiKwUpdQd+FVENShL+7aLbARK+EalbbHIbegVR9mfwE6+gJlQEj6ZQ+xjL5KEb4rJwrEtNP98wANkxizaVpiIJfFjoyeVMjgkHWAqkYRPppLTNGvKZpMRCc1mqESOLDhOde9d9idSnmrtyCE24ehUVapgint5Y+f1BYQIrarqUtZioyLX1CUBjB1aTSO1AbAoy5jAmfqA5sX3UY0c30h5KpWdFEXAsPGO/OPZwTceu1a85MkFnwAAAABJRU5ErkJggg==" alt="plus"><span><strong>Cree</strong></span></button>
             </section>
     </header>
 
@@ -43,7 +43,7 @@
 
 
       <section class="secCards1">
-      <h4><strong>Done</strong></h4>
+      <h4><strong>To do</strong></h4>
             
 
 
@@ -65,29 +65,39 @@
   </section>
         </section>
 
+        <section class="sectionErreur hiden"  >
+            <h1><strong> Error de network</strong> </h1>
+            <button class="buterreur btn btn-outline-danger">ressayer</button>
+           
+        </section>
+
 
         <section class="Partier-Cree input-group mb-3 hiden">
 
-            <form action="">
+           
+             <form action="">
 
                      <div>
                 <h4><strong>Nouvelle Carte </strong> </h1>
             </div>
-        <div><label for="">Title
-             <input type="text">
+        <div>
+            <label for="">Title
+             <input type="text" class="inputTitle">
         </label>
+        <p class="TitleChamp"></p>
+
         </div>
         <div>
             <label for="">description
-             <input type="text">
+             <input type="text" class="inputDescription">
         </label>
         </div>
           <div >
             <label for="select-status">Status *</label>
             <select name="" class="custom-select" id="select-status">
-                <option value="To do">TO do</option>
-                <option value="In Progress">In Progress</option>
-                <option value="Done">Done</option>
+                <option value="todo">TO do</option>
+                <option value="in-Progress">In Progress</option>
+                <option value="done">Done</option>
             </select>
         </div>
         <div>
@@ -101,20 +111,23 @@
         <div>
             <label for="input-assignne">assignee *</label>
             <input type="text" id="input-assignne" placeholder="ex:Youssef">
+            <p class="assigneeChamp"></p>
         </div>
 
         <div class="d-flex flex-column">
             <label for="Date">Due Date </label>
          <input type="date" id="Date">
-      
+      <p class="DateChamp"></p>
         </div>
         <div>
 
         </div>
      <div class="butAjouer">
-        <button type="button" class="btn btn-outline-primary">Ajouter la Carte</button>
+        <button type="button" class="btn btn-outline-primary" id="butAjo">Ajouter la Carte</button>
      </div>
             </form>
+
+           
 
 
         </section>

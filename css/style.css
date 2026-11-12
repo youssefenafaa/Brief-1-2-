@@ -61,34 +61,17 @@ header{
     gap: 10px;
 
 }
-.cards1{
+.cards1,.cards2,.cards3{
     color: wheat;
     background-color: rgb(71, 71, 102);
     width: 250Px;
-    height:500px;
+    height:550px;
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 15px;
     
 }
-.cards2{
-      color: wheat;
-    background-color: rgb(71, 71, 102);
-    width: 250Px;
-    height:500px;
-    padding: 20px;
-    border-radius: 10px;
-     margin-bottom: 15px;
-}
-.cards3 {
-    color: wheat;
-    background-color: rgb(71, 71, 102);
-    width: 250Px;
-    height:500px;
-    padding: 20px;
-    border-radius: 10px;
-     margin-bottom: 15px;
-}
+
 
 body section h4{
     color:rgb(240, 179, 99);
@@ -101,7 +84,7 @@ body section h4{
       color: wheat;
     background-color: rgb(71, 71, 102);
     width: 250Px;
-    height:600px;
+    height:auto;
     padding: 20px;
     border-radius: 10px;
     margin-top: 10px;

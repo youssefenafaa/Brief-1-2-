@@ -1,17 +1,25 @@
-let product =[]
+export let product =[]
  
-export function loadData(affiche){
+export function loadData(resolved,rejected){
 
  fetch('https://flowboard-api-virid.vercel.app/cards', {
-      headers: {
-    'X-Workspace': 'public'
-  }
+     
 })
-.then((res) => res.json())
+.then((res) =>{
+   if (!res.ok) {
+        throw new Error("Erreur HTTP : " + response.status);}
+       
+ return res.json()})
+
 .then(data =>{
     product=data
+    resolved(product)
+     
     // console.log(product)
-    affiche(product)
-} )
+    // affiche(product)
+}) 
+.catch ( e =>{
+    rejected()
+  })
 }
 // loadData()
