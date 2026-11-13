@@ -1,8 +1,8 @@
 
-import {filterData, loadData} from './api.js'
+import {filterDataServer, loadData} from './api.js'
 // console.log(loadData)
 
-// let x=[]
+
 
 document.addEventListener("DOMContentLoaded",()=>{
     loadData(afficheData,handelErreur)
@@ -257,27 +257,28 @@ function ValideDateFin(date){
 
 
 
-const inputRecherche=document.querySelector(".recherche")
-function recherche(){
-    let value=inputRecherche.value.toLowerCase().trim()
 
-    loadData((data)=>{
-let result=data.filter(card=>{
-    return card.title.toLowerCase().includes(value) || card.assignee.toLowerCase().includes(value) 
-    || card.status.toLowerCase().includes(value)
-})
- afficheData(result)
-    }   ,handelErreur)
+
+
+
+
+// // filter par proprity
+
+
+const inputRecherche=document.querySelector(".recherche")
+const filterSlectPriority=document.querySelector("#selectPriority")
+function appliqueFilter(){
+    filterDataServer(inputRecherche.value,filterSlectPriority.value,afficheData,handelErreur)
 
 }
-inputRecherche.addEventListener("input",recherche);
 
+inputRecherche.addEventListener("input",appliqueFilter)
 
+filterSlectPriority.addEventListener("change",appliqueFilter)
 
-// filter par proprity
-const filterSlectPriority=document.querySelector("#selectPriority")
-filterSlectPriority.addEventListener("change",()=>{
-    filterData(afficheData,handelErreur,filterSlectPriority.value)
+const butReaniliser=document.querySelector(".butReaniliser")
+butReaniliser.addEventListener("click",()=>{
+    inputRecherche.value=""
+    filterSlectPriority.value=""
+    loadData(afficheData,handelErreur)
 })
-
-
