@@ -12,7 +12,7 @@ export function loadData(resolved,rejected){
  return res.json()})
 
 .then(data =>{
-   
+    
     resolved(data)
      
     // console.log(product)
@@ -25,27 +25,33 @@ export function loadData(resolved,rejected){
 // loadData()
 
 
-export function filterData(resolved,rejected,priority){
-  fetch("https://flowboard-api-virid.vercel.app/cards")
-.then(res=>{
-  if(!res.ok) throw new Error("Erreur HTTP : " + res.status)
-    return res.json();
+export function filterDataServer(title,priority,resolved,rejected){
+  const trget="/cards"
+  const path="https://flowboard-api-virid.vercel.app"
+const Url=new URL(trget,path)
 
-  })
-  .then(data=>{
-    let result=[]
-    if(priority===""){
-      result=data
-    }
-    else{
-      result=data.filter(card=>{
-        return card.priority===priority
-      })
-    }
-    resolved(result)
-  })
-  .catch(e=>{
-     rejected()
+if(title){
+Url.searchParams.set("title_like",title)
+}
+if(priority){
+Url.searchParams.set("priority",priority)
+}
+  fetch(Url.toString())
+.then((res) =>{
+   if (!res.ok) {
+        throw new Error("Erreur HTTP : " + response.status);}
+       
+ return res.json()})
+ .then(data =>{
+    
+    resolved(data)
+     
+}) 
+.catch ( e =>{
+    rejected()
   })
 }
+
+
+
 
