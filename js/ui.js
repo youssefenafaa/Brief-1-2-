@@ -267,8 +267,9 @@ function ValideDateFin(date){
 
 const inputRecherche=document.querySelector(".recherche")
 const filterSlectPriority=document.querySelector("#selectPriority")
+const filterSelectMembers=document.querySelector("#select-membres")
 function appliqueFilter(){
-    filterDataServer(inputRecherche.value,filterSlectPriority.value,afficheData,handelErreur)
+    filterDataServer(inputRecherche.value,filterSlectPriority.value,filterSelectMembers.value,afficheData,handelErreur)
 
 }
 
@@ -276,9 +277,12 @@ inputRecherche.addEventListener("input",appliqueFilter)
 
 filterSlectPriority.addEventListener("change",appliqueFilter)
 
+filterSelectMembers.addEventListener("change",appliqueFilter)
+
 const butReaniliser=document.querySelector(".butReaniliser")
 butReaniliser.addEventListener("click",()=>{
     inputRecherche.value=""
     filterSlectPriority.value=""
+    filterSelectMembers.value=""
     loadData(afficheData,handelErreur)
 })
