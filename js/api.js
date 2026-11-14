@@ -25,7 +25,7 @@ export function loadData(resolved,rejected){
 // loadData()
 
 
-export function filterDataServer(title,priority,resolved,rejected){
+export function filterDataServer(title,priority,membres,resolved,rejected){
   const trget="/cards"
   const path="https://flowboard-api-virid.vercel.app"
 const Url=new URL(trget,path)
@@ -35,6 +35,9 @@ Url.searchParams.set("title_like",title)
 }
 if(priority){
 Url.searchParams.set("priority",priority)
+}
+if(membres){
+  Url.searchParams.set("assignee",membres)
 }
   fetch(Url.toString())
 .then((res) =>{
