@@ -279,6 +279,8 @@ filterSlectPriority.addEventListener("change",appliqueFilter)
 
 filterSelectMembers.addEventListener("change",appliqueFilter)
 
+
+
 const butReaniliser=document.querySelector(".butReaniliser")
 butReaniliser.addEventListener("click",()=>{
     inputRecherche.value=""
