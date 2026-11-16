@@ -1,7 +1,7 @@
 
 // import {filterDataServer, loadData, } from './api.js'
 // console.log(loadData)
-import {recup}   from './api.js'
+import {recup,filterData}   from './api.js'
 
 
 document.addEventListener("DOMContentLoaded",()=>{
@@ -270,7 +270,7 @@ const inputRecherche=document.querySelector(".recherche")
 const filterSlectPriority=document.querySelector("#selectPriority")
 const filterSelectMembers=document.querySelector("#select-membres")
 function appliqueFilter(){
-    filterDataServer(inputRecherche.value,filterSlectPriority.value,filterSelectMembers.value,afficheData,handelErreur)
+    filterData(inputRecherche.value,filterSlectPriority.value,filterSelectMembers.value,afficheData,handelErreur)
 
 }
 

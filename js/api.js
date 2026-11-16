@@ -1,20 +1,20 @@
 
- 
+
 // export function loadData(resolved,rejected){
 
 //  fetch('https://flowboard-api-virid.vercel.app/cards', {
-     
+
 // })
 // .then((res) =>{
 //    if (!res.ok) {
 //         throw new Error("Erreur HTTP : " + res.status);}
-       
+
 //  return res.json()})
 
 // .then(data =>{
-    
+
 //     resolved(data)
-     
+
 //     // console.log(product)
 //     // affiche(product)
 // }) 
@@ -43,12 +43,12 @@
 // .then((res) =>{
 //    if (!res.ok) {
 //         throw new Error("Erreur HTTP : " + response.status);}
-       
+
 //  return res.json()})
 //  .then(data =>{
-    
+
 //     resolved(data)
-     
+
 // }) 
 // .catch ( e =>{
 //     rejected()
@@ -59,13 +59,44 @@
 
 
 
-export async function recup(resolved,rejected){
-    try{
-     let response= await axios.get('https://flowboard-api-virid.vercel.app/cards')
-      resolved(response.data)
-    }
-    
-    catch{
-      rejected(response.data)
-    }
+export async function recup(resolved,rejected) {
+
+  try {
+
+    let response = await axios.get('https://flowboard-api-virid.vercel.app/cards?')
+
+
+    resolved(response.data)
+  }
+
+  catch (error) {
+    rejected(error)
+  }
 }
+
+
+
+export async function filterData(title,priority,membres,resolved,rejected){
+    const objet = {}
+  if (title) {
+    objet.title_like= title
+  }
+  if (priority) {
+    objet.priority = priority
+
+  }
+  if (membres) {
+    objet.assignee = membres
+  }
+
+  try{
+       let response = await axios.get('https://flowboard-api-virid.vercel.app/cards?', {
+      params: objet,
+    })
+    resolved(response.data)
+  }
+catch (error){
+ rejected(error)
+}
+}
+
