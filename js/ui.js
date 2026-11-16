@@ -1,13 +1,14 @@
 
-import {filterDataServer, loadData} from './api.js'
+// import {filterDataServer, loadData, } from './api.js'
 // console.log(loadData)
-
+import {recup}   from './api.js'
 
 
 document.addEventListener("DOMContentLoaded",()=>{
-    loadData(afficheData,handelErreur)
+    recup(afficheData,handelErreur)
    
 })
+
 
 
 function afficheData(cards){
@@ -96,7 +97,7 @@ function handelErreur(){
     sectionErreur.classList.remove("hiden")
    buterreur.addEventListener("click",()=>{
     sectionErreur.classList.add("hiden")
-      loadData(afficheData,handelErreur)
+      recup(afficheData,handelErreur)
 
    })
 
@@ -286,5 +287,5 @@ butReaniliser.addEventListener("click",()=>{
     inputRecherche.value=""
     filterSlectPriority.value=""
     filterSelectMembers.value=""
-    loadData(afficheData,handelErreur)
+    recup(afficheData,handelErreur)
 })
