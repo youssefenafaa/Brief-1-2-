@@ -59,19 +59,30 @@
 
 
 
-export async function recup(resolved,rejected) {
+// export async function recup(resolved,rejected) {
 
-  try {
+//   try {
 
-    let response = await axios.get('https://flowboard-api-virid.vercel.app/cards?')
+//     let response = await axios.get('https://flowboard-api-virid.vercel.app/cards?')
 
 
-    resolved(response.data)
-  }
+//     resolved(response.data)
+//   }
 
-  catch (error) {
-    rejected(error)
-  }
+//   catch (error) {
+//     rejected(error)
+//   }
+// }
+
+
+export async function recup() {
+
+  
+   const response= await axios.get('https://flowboard-api-virid.vercel.app/cards?')
+
+  return response.data
+    
+  
 }
 
 

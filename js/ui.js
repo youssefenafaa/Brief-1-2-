@@ -1,31 +1,31 @@
 
 // import {filterDataServer, loadData, } from './api.js'
 // console.log(loadData)
-import {recup,filterData}   from './api.js'
+// import {recup,filterData}   from './api.js'
 
 
-document.addEventListener("DOMContentLoaded",()=>{
-    recup(afficheData,handelErreur)
-   
-})
+// document.addEventListener("DOMContentLoaded",()=>{
+//     recup(afficheData,handelErreur)
+
+// })
 
 
 
-function afficheData(cards){
+export function afficheData(cards) {
     // console.log(cards)
     document.querySelector(".secCards1").innerHTML = "<h4>To do</h4>";
 
-document.querySelector(".secCards2").innerHTML = "<h4>In Progress</h4>";
+    document.querySelector(".secCards2").innerHTML = "<h4>In Progress</h4>";
 
-document.querySelector(".seccards3").innerHTML = "<h4>Done</h4>";
+    document.querySelector(".seccards3").innerHTML = "<h4>Done</h4>";
 
- cards.forEach(element => {
-    if(element.status=="todo"){
-        // console.log(element)
-      
-    let cards1=document.querySelector(".secCards1")
-    cards1.innerHTML +=
-      `<div class="cards1">  
+    cards.forEach(element => {
+        if (element.status == "todo") {
+            // console.log(element)
+
+            let cards1 = document.querySelector(".secCards1")
+            cards1.innerHTML +=
+                `<div class="cards1">  
       
             <div>
             <p class="id"><strong> id : </strong> ${element.id}</p>
@@ -41,15 +41,15 @@ document.querySelector(".seccards3").innerHTML = "<h4>Done</h4>";
             <p class="UpdatedAt">updatedAt : ${element.updatedAt}</p>
             </div>
             </div>`
-            
 
-      
-    }
 
-    if(element.status=="in-progress"){
-        let cards2=document.querySelector(".secCards2")
-        cards2.innerHTML +=  
-        `  <div class="cards2">
+
+        }
+
+        if (element.status == "in-progress") {
+            let cards2 = document.querySelector(".secCards2")
+            cards2.innerHTML +=
+                `  <div class="cards2">
  
      <div>
             <p class="id">id : ${element.id}</p>
@@ -65,12 +65,12 @@ document.querySelector(".seccards3").innerHTML = "<h4>Done</h4>";
      </div>
 
     </div>`
-    }
+        }
 
-    if(element.status=="done"){
-        let cards3=document.querySelector(".seccards3")
-        cards3.innerHTML+=
-        `<div class="cards3">
+        if (element.status == "done") {
+            let cards3 = document.querySelector(".seccards3")
+            cards3.innerHTML +=
+                `<div class="cards3">
 
            <div>
             <p class="id">id : ${element.id}</p>
@@ -85,21 +85,30 @@ document.querySelector(".seccards3").innerHTML = "<h4>Done</h4>";
             <p class="UpdatedAt">updatedAt : ${element.updatedAt}</p>
       </div>
       </div>`
-    }
- });    
+        }
+    });
 }
 
 
-const sectionErreur=document.querySelector(".sectionErreur")
-const buterreur=document.querySelector(".buterreur")
-function handelErreur(){
+const sectionErreur = document.querySelector(".sectionErreur")
+const buterreur = document.querySelector(".buterreur")
+
+
+export function handelErreur(retry) {
     // console.log("errur")
     sectionErreur.classList.remove("hiden")
-   buterreur.addEventListener("click",()=>{
-    sectionErreur.classList.add("hiden")
-      recup(afficheData,handelErreur)
+    buterreur.addEventListener("click", async () => {
+        sectionErreur.classList.add("hiden")
+        try {
+            const cards = await retry()
+            afficheData(cards)
+        }
+        catch (error) {
+            handelErreur(retry)
+        }
+        //   recup(afficheData,handelErreur)
 
-   })
+    })
 
 }
 
@@ -107,26 +116,24 @@ function handelErreur(){
 
 
 
-            
-const sectionCards=document.querySelector(".cars-section") 
-const sectionCree=document.querySelector(".Partier-Cree")
-const butCree=document.querySelector(".secBut")
 
-butCree.addEventListener("click",()=>{
-     sectionCards.classList.add("hiden")
-     sectionCree.classList.remove("hiden")
+// const sectionCards = document.querySelector(".cars-section")
+// const sectionCree = document.querySelector(".Partier-Cree")
+// const butCree = document.querySelector(".secBut")
 
-})
+// butCree.addEventListener("click", () => {
+//     sectionCards.classList.add("hiden")
+//     sectionCree.classList.remove("hiden")
 
-const butAjouter=document.querySelector("#butAjo")
-const InputTitle=document.querySelector(".inputTitle")
-const InputDescription=document.querySelector(".inputDescription")
-const SelectStatus=document.querySelector("#select-status")
-const selectPriority=document.querySelector("#select-priority")
-const Inputassingne=document.querySelector("#input-assignne")
-const InputDate=document.querySelector("#Date")
+// })
 
-
+// const butAjouter = document.querySelector("#butAjo")
+// const InputTitle = document.querySelector(".inputTitle")
+// const InputDescription = document.querySelector(".inputDescription")
+// const SelectStatus = document.querySelector("#select-status")
+// const selectPriority = document.querySelector("#select-priority")
+// const Inputassingne = document.querySelector("#input-assignne")
+// const InputDate = document.querySelector("#Date")
 
 
 
@@ -135,8 +142,10 @@ const InputDate=document.querySelector("#Date")
 
 
 
-function ajouterCard(element) {
-// console.log(element)
+
+
+export function ajouterCard(element) {
+    // console.log(element)
     let card = `
         <div class="cards1">
             <p>id : ${element.id}</p>
@@ -150,10 +159,10 @@ function ajouterCard(element) {
     `;
 
     let section = null;
-  
+
     if (element.status === "todo") {
         section = document.querySelector(".secCards1");
-       
+
     }
     else if (element.status === "in-Progress") {
         section = document.querySelector(".secCards2");
@@ -161,7 +170,7 @@ function ajouterCard(element) {
     }
     else if (element.status === "done") {
         section = document.querySelector(".seccards3");
-        
+
     }
     // console.log(card)
 
@@ -176,77 +185,78 @@ function ajouterCard(element) {
 
 
 
-let CheksTitle=document.createElement('p')
-let TitleChamp=document.querySelector(".TitleChamp")
-let CheksAssignee=document.createElement('p')
-let assigneeChamp=document.querySelector(".assigneeChamp")
-let CheksDAte=document.createElement('p')
-let DateChamp=document.querySelector(".DateChamp")
+// let CheksTitle = document.createElement('p')
+// let TitleChamp = document.querySelector(".TitleChamp")
+// let CheksAssignee = document.createElement('p')
+// let assigneeChamp = document.querySelector(".assigneeChamp")
+// let CheksDAte = document.createElement('p')
+// let DateChamp = document.querySelector(".DateChamp")
 
 
 
-let cont = 0;
-butAjouter.addEventListener("click", (e) => {
+// let cont = 0;
+// butAjouter.addEventListener("click", (e) => {
 
-    e.preventDefault();
-    CheksTitle.textContent=""
-if(ValideTitle(InputTitle.value)==false){
-CheksTitle.textContent="champs Invalide"
-CheksTitle.style.color = "red"
- TitleChamp.appendChild(CheksTitle)
+//     e.preventDefault();
+//     CheksTitle.textContent = ""
+//     if (ValideTitle(InputTitle.value) == false) {
+//         CheksTitle.textContent = "champs Invalide"
+//         CheksTitle.style.color = "red"
+//         TitleChamp.appendChild(CheksTitle)
 
+//     }
+//     CheksAssignee.textContent = ""
+//     if (ValideTitle(Inputassingne.value) == false) {
+//         CheksAssignee.textContent = "champs Invalide"
+//         CheksAssignee.style.color = "red"
+//         assigneeChamp.appendChild(CheksAssignee)
+
+//     }
+//     CheksDAte.textContent = ""
+//     if (ValideDateFin(InputDate.value) == false) {
+//         CheksDAte.textContent = "champs Invalide"
+//         CheksDAte.style.color = "red"
+//         DateChamp.appendChild(CheksDAte)
+//     }
+
+
+//     let object = {
+//         id: ++cont,
+//         title: InputTitle.value,
+//         description: InputDescription.value,
+//         status: SelectStatus.value,
+//         priority: selectPriority.value,
+//         assignee: Inputassingne.value,
+//         dueDate: InputDate.value
+//     };
+
+
+//     ajouterCard(object);
+//     if ((ValideTitle(InputTitle.value) == true) && (ValideTitle(Inputassingne.value) == true) && (ValideDateFin(InputDate.value) == true)) {
+//         sectionCree.classList.add("hiden");
+//         sectionCards.classList.remove("hiden");
+//     }
+
+
+
+// });
+
+
+///Valid Regex//////
+export function ValideTitle(Title) {
+    const regex = /^[A-Za-z]+$/;
+    return regex.test(Title)
 }
-CheksAssignee.textContent=""
-if(ValideTitle(Inputassingne.value)==false){
-CheksAssignee.textContent="champs Invalide"
-CheksAssignee.style.color = "red"
- assigneeChamp.appendChild(CheksAssignee)
 
-}
-CheksDAte.textContent=""
-if(ValideDateFin(InputDate.value)==false){
-    CheksDAte.textContent="champs Invalide"
-CheksDAte.style.color = "red"
- DateChamp.appendChild(CheksDAte)
-}
+export function ValideDateFin(date) {
+    if (date == "") {
+        return false
+    }
 
+    const dateNew = new Date();
+    const dateFin = new Date(date);
+    return !(dateFin < dateNew)
 
-    let object = {
-        id: ++cont,
-        title: InputTitle.value,
-        description: InputDescription.value,
-        status: SelectStatus.value,
-        priority: selectPriority.value,
-        assignee: Inputassingne.value,
-        dueDate: InputDate.value
-    };
-
-    ajouterCard(object);
-if((ValideTitle(InputTitle.value)==true) && (ValideTitle(Inputassingne.value)==true)&&(ValideDateFin(InputDate.value)==true))
-    {
-sectionCree.classList.add("hiden");
-    sectionCards.classList.remove("hiden");
-}
-    
-    
-
-});
-
-
-   ///Valid Regex//////
-function ValideTitle(Title){
-     const regex = /^[A-Za-z]+$/;
-     return regex.test(Title)
-}
-
-function ValideDateFin(date){
-    if(date==""){
-        return false}
-        
-    const dateNew= new Date();
-    const dateFin=new Date(date);
-    return !(dateFin<dateNew)
-   
 
 }
 
@@ -266,26 +276,23 @@ function ValideDateFin(date){
 // // filter par proprity
 
 
-const inputRecherche=document.querySelector(".recherche")
-const filterSlectPriority=document.querySelector("#selectPriority")
-const filterSelectMembers=document.querySelector("#select-membres")
-function appliqueFilter(){
-    filterData(inputRecherche.value,filterSlectPriority.value,filterSelectMembers.value,afficheData,handelErreur)
+export const inputRecherche = document.querySelector(".recherche")
+export const filterSlectPriority = document.querySelector("#selectPriority")
+export const filterSelectMembers = document.querySelector("#select-membres")
 
-}
 
-inputRecherche.addEventListener("input",appliqueFilter)
+// inputRecherche.addEventListener("input", appliqueFilter)
 
-filterSlectPriority.addEventListener("change",appliqueFilter)
+// filterSlectPriority.addEventListener("change", appliqueFilter)
 
-filterSelectMembers.addEventListener("change",appliqueFilter)
+// filterSelectMembers.addEventListener("change", appliqueFilter)
 
 
 
-const butReaniliser=document.querySelector(".butReaniliser")
-butReaniliser.addEventListener("click",()=>{
-    inputRecherche.value=""
-    filterSlectPriority.value=""
-    filterSelectMembers.value=""
-    recup(afficheData,handelErreur)
-})
+// const butReaniliser = document.querySelector(".butReaniliser")
+// butReaniliser.addEventListener("click", () => {
+//     inputRecherche.value = ""
+//     filterSlectPriority.value = ""
+//     filterSelectMembers.value = ""
+//     recup(afficheData, handelErreur)
+// })
