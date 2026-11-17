@@ -111,3 +111,22 @@ catch (error){
 }
 }
 
+
+
+export async function GetCatds(id) {
+
+  
+   return await axios.get('https://flowboard-api-virid.vercel.app/cards/'+id)
+
+  
+}
+// export async function  MOdifierCarte(id,cards){
+//   await axios.get('https://flowboard-api-virid.vercel.app/cards/'+id)
+//     method: 'PUT',
+//     data:cards
+ 
+ 
+  
+// } 
+
+

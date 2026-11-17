@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanban</title>
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
     <header>
         <section>
@@ -16,22 +19,22 @@
 
         <section id="head-input">
             <label for="">recherche
-             <input type="text" class="recherche" >
+                <input type="text" class="recherche">
             </label>
         </section>
-      <section class="section-members">
-        <select name="" id="select-membres" class="custom-select">
-            <option value="">ALL...</option>
-            <option value="Amina Haddad">Amina Haddad</option>
-            <option value="Lucas Martin">Lucas Martin</option>
-            <option value="Yasmine Benali">Yasmine Benali</option>
-            <option value="Thomas Leroy">Thomas Leroy</option>
-            <option value="Inès Moreau">Inès Moreau</option>
-        </select>
-      </section>
+        <section class="section-members">
+            <select name="" id="select-membres" class="custom-select">
+                <option value="">ALL...</option>
+                <option value="Amina Haddad">Amina Haddad</option>
+                <option value="Lucas Martin">Lucas Martin</option>
+                <option value="Yasmine Benali">Yasmine Benali</option>
+                <option value="Thomas Leroy">Thomas Leroy</option>
+                <option value="Inès Moreau">Inès Moreau</option>
+            </select>
+        </section>
 
-          <section id="slect">
-            <select class="custom-select custom-select-sm" id="selectPriority" >
+        <section id="slect">
+            <select class="custom-select custom-select-sm" id="selectPriority">
                 <option value="" selected>All ...</option>
                 <option value="low">low</option>
                 <option value="medium">medium</option>
@@ -39,14 +42,16 @@
 
 
             </select>
-              
-                <button class="butReaniliser btn btn-outline-warning">réinitialiser</button>
-            
-          
-          </section>
-          <section class="secBut">
-                <button type="button" id="butCree" class="btn btn-outline-primary"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACC0lEQVR4nO2ay0rDQBRAs9K6UCpodacfI4qg6NLHN0jFv9C6UBTErZ+gLeofFHFtW+3Kx0asa6vikQuzCDLGPCbJTPBAIZAmM4eZ3Nw7E8/7p6AAo8AyUAMaQBt4BfrqJ8ctdU7+swSUPRsABoF14BL4JDpyzTmwJvfychAYAraAJ8zxCGwCpawk5oEu6XEHzKU9jfbJjhMZedMSE8A12XMFVExJTKvhzotb6UNSiXEVRvOmC0zGlSjlNJ2Cpln0EA0cYR8HcUKsrcxGCbMdU6367muKu1AvTfXGxmIRoRpmNCRVsF3kIfDBVwkgDogIq0EiksW6ItIIqifipOJ5iXwAIzoRKYpwSERY0Ins4p7Ijk5ESlDXRE51IpJluibS1on0HBR51on0o3YuLQjPW6FFeqRAjM4lnlrGMt4MRVqFDr81B0W2C52ilB1LGt+1SaNq7MIhkbpWQjUmq+KuiKwUpdQd+FVENShL+7aLbARK+EalbbHIbegVR9mfwE6+gJlQEj6ZQ+xjL5KEb4rJwrEtNP98wANkxizaVpiIJfFjoyeVMjgkHWAqkYRPppLTNGvKZpMRCc1mqESOLDhOde9d9idSnmrtyCE24ehUVapgint5Y+f1BYQIrarqUtZioyLX1CUBjB1aTSO1AbAoy5jAmfqA5sX3UY0c30h5KpWdFEXAsPGO/OPZwTceu1a85MkFnwAAAABJRU5ErkJggg==" alt="plus"><span><strong>Cree</strong></span></button>
-            </section>
+
+            <button class="butReaniliser btn btn-outline-warning">réinitialiser</button>
+
+
+        </section>
+        <section class="secBut">
+            <button type="button" id="butCree" class="btn btn-outline-primary"><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACC0lEQVR4nO2ay0rDQBRAs9K6UCpodacfI4qg6NLHN0jFv9C6UBTErZ+gLeofFHFtW+3Kx0asa6vikQuzCDLGPCbJTPBAIZAmM4eZ3Nw7E8/7p6AAo8AyUAMaQBt4BfrqJ8ctdU7+swSUPRsABoF14BL4JDpyzTmwJvfychAYAraAJ8zxCGwCpawk5oEu6XEHzKU9jfbJjhMZedMSE8A12XMFVExJTKvhzotb6UNSiXEVRvOmC0zGlSjlNJ2Cpln0EA0cYR8HcUKsrcxGCbMdU6367muKu1AvTfXGxmIRoRpmNCRVsF3kIfDBVwkgDogIq0EiksW6ItIIqifipOJ5iXwAIzoRKYpwSERY0Ins4p7Ijk5ESlDXRE51IpJluibS1on0HBR51on0o3YuLQjPW6FFeqRAjM4lnlrGMt4MRVqFDr81B0W2C52ilB1LGt+1SaNq7MIhkbpWQjUmq+KuiKwUpdQd+FVENShL+7aLbARK+EalbbHIbegVR9mfwE6+gJlQEj6ZQ+xjL5KEb4rJwrEtNP98wANkxizaVpiIJfFjoyeVMjgkHWAqkYRPppLTNGvKZpMRCc1mqESOLDhOde9d9idSnmrtyCE24ehUVapgint5Y+f1BYQIrarqUtZioyLX1CUBjB1aTSO1AbAoy5jAmfqA5sX3UY0c30h5KpWdFEXAsPGO/OPZwTceu1a85MkFnwAAAABJRU5ErkJggg=="
+                    alt="plus"><span><strong>Cree</strong></span></button>
+        </section>
     </header>
 
 
@@ -56,100 +61,106 @@
         <section class="cars-section">
 
 
-      <section class="secCards1">
-      <h4><strong>To do</strong></h4>
-            
+            <section class="secCards1">
+                <h4><strong>To do</strong></h4>
 
 
 
+
+            </section>
+            <section class="secCards2">
+
+                <h4><strong>In Progress</strong></h4>
+
+
+
+
+            </section>
+            <section class="seccards3">
+                <h4><strong>Done</strong></h4>
+
+
+
+            </section>
         </section>
-  <section class="secCards2">
-           
-    <h4><strong>In Progress</strong></h4>
 
-
-     
-
-  </section>
-  <section class="seccards3">
-      <h4><strong>Done</strong></h4>
-      
-   
-
-  </section>
-        </section>
-
-        <section class="sectionErreur hiden"  >
+        <section class="sectionErreur hiden">
             <h1><strong> Error de network</strong> </h1>
             <button class="buterreur btn btn-outline-danger">ressayer</button>
-           
+
         </section>
 
 
         <section class="Partier-Cree input-group mb-3 hiden">
 
-           
-             <form action="">
 
-                     <div>
-                <h4><strong>Nouvelle Carte </strong> </h1>
-            </div>
-        <div>
-            <label for="">Title
-             <input type="text" class="inputTitle">
-        </label>
-        <p class="TitleChamp"></p>
+            <form action="" id="cardData">
 
-        </div>
-        <div>
-            <label for="">description
-             <input type="text" class="inputDescription">
-        </label>
-        </div>
-          <div >
-            <label for="select-status">Status *</label>
-            <select name="" class="custom-select" id="select-status">
-                <option value="todo">TO do</option>
-                <option value="in-Progress">In Progress</option>
-                <option value="done">Done</option>
-            </select>
-        </div>
-        <div>
-             <label for="select-priority">priority *</label>
-            <select name="" class="custom-select" id="select-priority">
-                <option value="low">low</option>
-                <option value="medium">medium</option>
-                <option value="high">high</option>
-            </select>
-        </div>
-        <div>
-            <label for="input-assignne">assignee *</label>
-            <input type="text" id="input-assignne" placeholder="ex:Youssef">
-            <p class="assigneeChamp"></p>
-        </div>
+                <div>
+                    <h4><strong>Nouvelle Carte </strong> </h1>
+                </div>
+                <div>
+                    <label for="">Title
+                        <input type="text" class="inputTitle">
+                    </label>
+                    <p class="TitleChamp"></p>
 
-        <div class="d-flex flex-column">
-            <label for="Date">Due Date </label>
-         <input type="date" id="Date">
-      <p class="DateChamp"></p>
-        </div>
-        <div>
+                </div>
+                <div>
+                    <label for="">description
+                        <input type="text" class="inputDescription">
+                    </label>
+                </div>
+                <div>
+                    <label for="select-status">Status *</label>
+                    <select name="" class="custom-select" id="select-status">
+                        <option value="todo">TO do</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="done">Done</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="select-priority">priority *</label>
+                    <select name="" class="custom-select" id="select-priority">
+                        <option value="low">low</option>
+                        <option value="medium">medium</option>
+                        <option value="high">high</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="input-assignne">assignee *</label>
+                    <input type="text" id="input-assignne" placeholder="ex:Youssef">
+                    <p class="assigneeChamp"></p>
+                </div>
 
-        </div>
-     <div class="butAjouer">
-        <button type="button" class="btn btn-outline-primary" id="butAjo">Ajouter la Carte</button>
-     </div>
+                <div class="d-flex flex-column">
+                    <label for="Date">Due Date </label>
+                    <input type="date" id="Date">
+                    <p class="DateChamp"></p>
+                </div>
+                <div>
+
+                </div>
+                <div class="butAjouer">
+                    <button type="button" class="btn btn-outline-primary" id="butAjo">Ajouter la Carte</button>
+                </div>
+                <div class="butModifier">
+                    <button type="button" class="btn btn-outline-primary" id="butModifer">Modifier la Carte</button>
+                </div>
             </form>
 
-           
+
 
 
         </section>
-        
-  
 
+
+
+    
 
     </main>
+    
+                
 
 
     <!-- <script type="module" src="/js/ui.js"></script>
@@ -157,6 +168,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="js/main.js"></script>
 
-    
+
 </body>
+
 </html>

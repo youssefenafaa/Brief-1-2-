@@ -1,5 +1,5 @@
 
-// import {filterDataServer, loadData, } from './api.js'
+import {GetCatds } from './api.js'
 // console.log(loadData)
 // import {recup,filterData}   from './api.js'
 
@@ -9,7 +9,7 @@
 
 // })
 
-
+export const dataModifierObject="mo"
 
 export function afficheData(cards) {
     // console.log(cards)
@@ -40,6 +40,7 @@ export function afficheData(cards) {
             <p class="createdAt">createdAt : ${element.createdAt}</p>
             <p class="UpdatedAt">updatedAt : ${element.updatedAt}</p>
             </div>
+            <div> <button  type="button"  class="butModifier" data-id="${element.id}">modifier</button></div>
             </div>`
 
 
@@ -63,7 +64,7 @@ export function afficheData(cards) {
             <p class="createdAt">createdAt:${element.createdAt} </p>
             <p class="UpdatedAt">updatedAt:${element.updatedAt}</p>
      </div>
-
+             <div> <button  type="button"  class="butModifier"  data-id="${element.id}">modifier</button></div>
     </div>`
         }
 
@@ -84,10 +85,53 @@ export function afficheData(cards) {
             <p class="createdAt">createdAt : ${element.createdAt} </p>
             <p class="UpdatedAt">updatedAt : ${element.updatedAt}</p>
       </div>
+             <div> <button  type="button" class="butModifier" data-id="${element.id}">modifier</button></div>
       </div>`
         }
+
     });
+
+
+    const butModifier=document.querySelectorAll(".butModifier")
+butModifier.forEach((btn) => {
+            btn.addEventListener('click', async(e) => {
+                console.log(e.currentTarget.dataset.id)
+               let  {data}=await GetCatds(e.currentTarget.dataset.id)
+               console.log(data)
+               sectionCards.classList.add("hiden")
+                sectionCree.classList.remove("hiden")
+
+             
+                    //    =InputTitle.value
+                            butMOdifer.setAttribute("data-id",data.id)
+                            InputTitle.value=data.title
+                            InputDescription.value=data.description
+                            SelectStatus.value=data.status
+                            selectPriority.value=data.priority
+                            Inputassingne.value=data.assignee
+                            InputDate.value=data.dueDate
+
+
+        //  let dataModifier={
+        //         title:InputTitle.value,
+        //         description:InputDescription.value,
+        //         status:SelectStatus.value,
+        //         priority:selectPriority.value,
+        //         assignee:Inputassingne.value,
+        //         dueDate:InputDate.value
+
+
+        //      }
+          
+
+
+
+            })
+        })
+
+
 }
+const butMOdifer=document.querySelector("#butModifer")
 
 
 const sectionErreur = document.querySelector(".sectionErreur")
@@ -117,23 +161,23 @@ export function handelErreur(retry) {
 
 
 
-// const sectionCards = document.querySelector(".cars-section")
-// const sectionCree = document.querySelector(".Partier-Cree")
-// const butCree = document.querySelector(".secBut")
+const sectionCards = document.querySelector(".cars-section")
+const sectionCree = document.querySelector(".Partier-Cree")
+const butCree = document.querySelector(".secBut")
 
-// butCree.addEventListener("click", () => {
-//     sectionCards.classList.add("hiden")
-//     sectionCree.classList.remove("hiden")
+butCree.addEventListener("click", () => {
+    sectionCards.classList.add("hiden")
+    sectionCree.classList.remove("hiden")
 
-// })
+})
 
-// const butAjouter = document.querySelector("#butAjo")
-// const InputTitle = document.querySelector(".inputTitle")
-// const InputDescription = document.querySelector(".inputDescription")
-// const SelectStatus = document.querySelector("#select-status")
-// const selectPriority = document.querySelector("#select-priority")
-// const Inputassingne = document.querySelector("#input-assignne")
-// const InputDate = document.querySelector("#Date")
+const butAjouter = document.querySelector("#butAjo")
+const InputTitle = document.querySelector(".inputTitle")
+const InputDescription = document.querySelector(".inputDescription")
+const SelectStatus = document.querySelector("#select-status")
+const selectPriority = document.querySelector("#select-priority")
+const Inputassingne = document.querySelector("#input-assignne")
+const InputDate = document.querySelector("#Date")
 
 
 
@@ -185,61 +229,61 @@ export function ajouterCard(element) {
 
 
 
-// let CheksTitle = document.createElement('p')
-// let TitleChamp = document.querySelector(".TitleChamp")
-// let CheksAssignee = document.createElement('p')
-// let assigneeChamp = document.querySelector(".assigneeChamp")
-// let CheksDAte = document.createElement('p')
-// let DateChamp = document.querySelector(".DateChamp")
+let CheksTitle = document.createElement('p')
+let TitleChamp = document.querySelector(".TitleChamp")
+let CheksAssignee = document.createElement('p')
+let assigneeChamp = document.querySelector(".assigneeChamp")
+let CheksDAte = document.createElement('p')
+let DateChamp = document.querySelector(".DateChamp")
 
 
 
-// let cont = 0;
-// butAjouter.addEventListener("click", (e) => {
+let cont = 0;
+butAjouter.addEventListener("click", (e) => {
 
-//     e.preventDefault();
-//     CheksTitle.textContent = ""
-//     if (ValideTitle(InputTitle.value) == false) {
-//         CheksTitle.textContent = "champs Invalide"
-//         CheksTitle.style.color = "red"
-//         TitleChamp.appendChild(CheksTitle)
+    e.preventDefault();
+    CheksTitle.textContent = ""
+    if (ValideTitle(InputTitle.value) == false) {
+        CheksTitle.textContent = "champs Invalide"
+        CheksTitle.style.color = "red"
+        TitleChamp.appendChild(CheksTitle)
 
-//     }
-//     CheksAssignee.textContent = ""
-//     if (ValideTitle(Inputassingne.value) == false) {
-//         CheksAssignee.textContent = "champs Invalide"
-//         CheksAssignee.style.color = "red"
-//         assigneeChamp.appendChild(CheksAssignee)
+    }
+    CheksAssignee.textContent = ""
+    if (ValideTitle(Inputassingne.value) == false) {
+        CheksAssignee.textContent = "champs Invalide"
+        CheksAssignee.style.color = "red"
+        assigneeChamp.appendChild(CheksAssignee)
 
-//     }
-//     CheksDAte.textContent = ""
-//     if (ValideDateFin(InputDate.value) == false) {
-//         CheksDAte.textContent = "champs Invalide"
-//         CheksDAte.style.color = "red"
-//         DateChamp.appendChild(CheksDAte)
-//     }
-
-
-//     let object = {
-//         id: ++cont,
-//         title: InputTitle.value,
-//         description: InputDescription.value,
-//         status: SelectStatus.value,
-//         priority: selectPriority.value,
-//         assignee: Inputassingne.value,
-//         dueDate: InputDate.value
-//     };
+    }
+    CheksDAte.textContent = ""
+    if (ValideDateFin(InputDate.value) == false) {
+        CheksDAte.textContent = "champs Invalide"
+        CheksDAte.style.color = "red"
+        DateChamp.appendChild(CheksDAte)
+    }
 
 
-//     ajouterCard(object);
-//     if ((ValideTitle(InputTitle.value) == true) && (ValideTitle(Inputassingne.value) == true) && (ValideDateFin(InputDate.value) == true)) {
-//         sectionCree.classList.add("hiden");
-//         sectionCards.classList.remove("hiden");
-//     }
+    let object = {
+        id: ++cont,
+        title: InputTitle.value,
+        description: InputDescription.value,
+        status: SelectStatus.value,
+        priority: selectPriority.value,
+        assignee: Inputassingne.value,
+        dueDate: InputDate.value
+    };
+
+
+    ajouterCard(object);
+    if ((ValideTitle(InputTitle.value) == true) && (ValideTitle(Inputassingne.value) == true) && (ValideDateFin(InputDate.value) == true)) {
+        sectionCree.classList.add("hiden");
+        sectionCards.classList.remove("hiden");
+    }
 
 
 
-// });
+});
 
 
 ///Valid Regex//////
@@ -296,3 +340,9 @@ export const filterSelectMembers = document.querySelector("#select-membres")
 //     filterSelectMembers.value = ""
 //     recup(afficheData, handelErreur)
 // })
+
+
+
+//Modifier
+
+
