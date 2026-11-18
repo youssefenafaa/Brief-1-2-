@@ -41,6 +41,7 @@ export function afficheData(cards) {
             <p class="UpdatedAt">updatedAt : ${element.updatedAt}</p>
             </div>
             <div> <button  type="button"  class="butModifier" data-id="${element.id}">modifier</button></div>
+            <div> <button  type="button"  class="butSupprimer" data-id="${element.id}">Supprimer</button></div>
             </div>`
 
 
@@ -65,6 +66,7 @@ export function afficheData(cards) {
             <p class="UpdatedAt">updatedAt:${element.updatedAt}</p>
      </div>
              <div> <button  type="button"  class="butModifier"  data-id="${element.id}">modifier</button></div>
+             <div> <button  type="button"  class="butSupprimer" data-id="${element.id}">Supprimer</button></div>
     </div>`
         }
 
@@ -86,6 +88,7 @@ export function afficheData(cards) {
             <p class="UpdatedAt">updatedAt : ${element.updatedAt}</p>
       </div>
              <div> <button  type="button" class="butModifier" data-id="${element.id}">modifier</button></div>
+             <div> <button  type="button"  class="butSupprimer" data-id="${element.id}">Supprimer</button></div>
       </div>`
         }
 
@@ -113,16 +116,7 @@ butModifier.forEach((btn) => {
                             InputDate.value=data.dueDate
 
 
-        //  let dataModifier={
-        //         title:InputTitle.value,
-        //         description:InputDescription.value,
-        //         status:SelectStatus.value,
-        //         priority:selectPriority.value,
-        //         assignee:Inputassingne.value,
-        //         dueDate:InputDate.value
-
-
-        //      }
+       
           
 
 
@@ -131,8 +125,22 @@ butModifier.forEach((btn) => {
         })
 
 
+
 }
+
+
+
+   
 const butMOdifer=document.querySelector("#butModifer")
+
+export function getBoutonsSupprimer() {
+    return document.querySelectorAll(".butSupprimer");
+}
+
+
+
+
+
 
 
 const sectionErreur = document.querySelector(".sectionErreur")

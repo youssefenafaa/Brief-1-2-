@@ -9,6 +9,21 @@ document.addEventListener("DOMContentLoaded",async()=>{
     try{
         const cards= await api.recup()
         ui.afficheData(cards)
+        const butSupprimer=ui.getBoutonsSupprimer()
+butSupprimer.forEach(but => {
+    but.addEventListener("click",async(e)=>{
+              const id=e.currentTarget.dataset.id
+            //   console.log(id)
+            try{
+                await api.supprimerCarte(id)
+                const cards=await api.recup()
+                ui.afficheData(cards)
+            }
+            catch(error){
+                   console.log(error)
+            }
+    })
+});
         
     }
     catch (error){
@@ -175,10 +190,20 @@ document.querySelector(".cars-section").classList.remove("hiden");
 
  
 
-// butMOdifer.addEventListener("click",(e)=>{
-    
-//         let exDataForm= new FormData(formm)
-        
-//          let dataModifier=Object.fromEntries(exDataForm.entries)
-//          console.log(dataModifier)
-// })
+//but Supprimer///
+
+const butSupprimer=ui.getBoutonsSupprimer()
+butSupprimer.forEach(but => {
+    but.addEventListener("click",async(e)=>{
+              const id=e.currentTarget.dataset.id
+            //   console.log(id)
+            try{
+                await api.supprimerCarte(id)
+                const cards=await api.recup()
+                ui.afficheData(cards)
+            }
+            catch(error){
+                   console.log(error)
+            }
+    })
+});

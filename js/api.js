@@ -77,5 +77,11 @@ try {
  
   
 } 
-
+//DELETE////
+export async function supprimerCarte(id) {
+    return await axios.delete(
+        'https://flowboard-api-virid.vercel.app/cards/' + id + '?password=1234',
+        
+    );
+}
 
