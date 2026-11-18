@@ -91,13 +91,14 @@ export function afficheData(cards) {
 
     });
 
+    ///Event pour recuper les doones pour modifier
 
     const butModifier=document.querySelectorAll(".butModifier")
 butModifier.forEach((btn) => {
             btn.addEventListener('click', async(e) => {
-                console.log(e.currentTarget.dataset.id)
+                // console.log(e.currentTarget.dataset.id)
                let  {data}=await GetCatds(e.currentTarget.dataset.id)
-               console.log(data)
+            //    console.log(data)
                sectionCards.classList.add("hiden")
                 sectionCree.classList.remove("hiden")
 

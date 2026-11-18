@@ -101,19 +101,19 @@
                 </div>
                 <div>
                     <label for="">Title
-                        <input type="text" class="inputTitle">
+                        <input type="text" name="title" class="inputTitle">
                     </label>
                     <p class="TitleChamp"></p>
 
                 </div>
                 <div>
                     <label for="">description
-                        <input type="text" class="inputDescription">
+                        <input type="text" name="description" class="inputDescription">
                     </label>
                 </div>
                 <div>
                     <label for="select-status">Status *</label>
-                    <select name="" class="custom-select" id="select-status">
+                    <select name="status" class="custom-select" id="select-status">
                         <option value="todo">TO do</option>
                         <option value="in-progress">In Progress</option>
                         <option value="done">Done</option>
@@ -121,21 +121,28 @@
                 </div>
                 <div>
                     <label for="select-priority">priority *</label>
-                    <select name="" class="custom-select" id="select-priority">
+                    <select name="priority" class="custom-select" id="select-priority">
                         <option value="low">low</option>
                         <option value="medium">medium</option>
                         <option value="high">high</option>
                     </select>
                 </div>
-                <div>
-                    <label for="input-assignne">assignee *</label>
-                    <input type="text" id="input-assignne" placeholder="ex:Youssef">
-                    <p class="assigneeChamp"></p>
+                
+                      <div class="section-members">
+            <select name="assignee" id="input-assignne" class="custom-select">
+                <option value="Amina Haddad">Amina Haddad</option>
+                <option value="Lucas Martin">Lucas Martin</option>
+                <option value="Yasmine Benali">Yasmine Benali</option>
+                <option value="Thomas Leroy">Thomas Leroy</option>
+                <option value="Inès Moreau">Inès Moreau</option>
+            </select>
+                   
+                    <!-- <p class="assigneeChamp"></p> -->
                 </div>
 
                 <div class="d-flex flex-column">
                     <label for="Date">Due Date </label>
-                    <input type="date" id="Date">
+                    <input type="date" name="dueDate" id="Date">
                     <p class="DateChamp"></p>
                 </div>
                 <div>
@@ -144,8 +151,8 @@
                 <div class="butAjouer">
                     <button type="button" class="btn btn-outline-primary" id="butAjo">Ajouter la Carte</button>
                 </div>
-                <div class="butModifier">
-                    <button type="button" class="btn btn-outline-primary" id="butModifer">Modifier la Carte</button>
+                <div class="zoneModifier">
+                    <button type="submit" class="btn btn-outline-primary" id="butModifer">Modifier la Carte</button>
                 </div>
             </form>
 

@@ -139,10 +139,46 @@ butReaniliser.addEventListener("click", () => {
 })
 
 
-const butMOdifer=document.querySelector("#butModifer")
-butMOdifer.addEventListener("click",(e)=>{
-     
-        let exDataForm=new FormData(document.querySelector("#cardData"))
-         let dataModifier=Object.fromEntries(exDataForm)
-         console.log(dataModifier,exDataForm)
-})
+
+///MOdifier La carte
+const butModiferCarte=document.querySelector("#butModifer")
+let formm=document.querySelector("#cardData");
+
+
+formm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    let exDataForm = new FormData(e.currentTarget);
+    let dataModifier = Object.fromEntries(exDataForm);
+
+    let id = butModiferCarte.dataset.id;
+
+    console.log("ID:", id);
+    console.log("Data:", dataModifier);
+
+    try {
+        await api.MOdifierCarte(id, dataModifier);
+
+        const cards = await api.recup();
+        ui.afficheData(cards);
+
+        
+
+document.querySelector(".Partier-Cree").classList.add("hiden");
+document.querySelector(".cars-section").classList.remove("hiden");
+
+    } catch (error) {
+        console.error("Erreur modification :", error);
+    }
+});
+
+
+ 
+
+// butMOdifer.addEventListener("click",(e)=>{
+    
+//         let exDataForm= new FormData(formm)
+        
+//          let dataModifier=Object.fromEntries(exDataForm.entries)
+//          console.log(dataModifier)
+// })
