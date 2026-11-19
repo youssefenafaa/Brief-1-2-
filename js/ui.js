@@ -40,8 +40,16 @@ export function afficheData(cards) {
             <p class="createdAt">createdAt : ${element.createdAt}</p>
             <p class="UpdatedAt">updatedAt : ${element.updatedAt}</p>
             </div>
-            <div> <button  type="button"  class="butModifier" data-id="${element.id}">modifier</button></div>
-            <div> <button  type="button"  class="butSupprimer" data-id="${element.id}">Supprimer</button></div>
+            <div> <button  type="button"  class="butModifier btn   btn-outline-primary" data-id="${element.id}">modifier</button></div>
+            <div> <button  type="button"  class="butSupprimer btn btn-outline-primary" data-id="${element.id}">Supprimer</button></div>
+             <div>
+             <select  class="custom-select" name="statusEdit" data-id = ${element.id} >
+                            <option value="" selected disabled >changement de status</option>
+                            <option value="todo">todo</option>
+                            <option value="in-progress">in-progress</option>
+                            <option value="done">done</option>
+                        </select>
+                        </div>
             </div>`
 
 
@@ -65,8 +73,17 @@ export function afficheData(cards) {
             <p class="createdAt">createdAt:${element.createdAt} </p>
             <p class="UpdatedAt">updatedAt:${element.updatedAt}</p>
      </div>
-             <div> <button  type="button"  class="butModifier"  data-id="${element.id}">modifier</button></div>
-             <div> <button  type="button"  class="butSupprimer" data-id="${element.id}">Supprimer</button></div>
+             <div> <button  type="button"  class="butModifier btn  btn-outline-primary"  data-id="${element.id}">modifier</button></div>
+             <div> <button  type="button"  class="butSupprimer btn btn-outline-primary" data-id="${element.id}">Supprimer</button></div>
+              <div>
+             <select class="custom-select"   name="statusEdit" data-id = ${element.id} >
+                            <option value="" selected disabled >changement de status</option>
+                            <option value="todo">todo</option>
+                            <option value="in-progress">in-progress</option>
+                            <option value="done">done</option>
+                        </select>
+                        </div>
+           
     </div>`
         }
 
@@ -87,8 +104,17 @@ export function afficheData(cards) {
             <p class="createdAt">createdAt : ${element.createdAt} </p>
             <p class="UpdatedAt">updatedAt : ${element.updatedAt}</p>
       </div>
-             <div> <button  type="button" class="butModifier" data-id="${element.id}">modifier</button></div>
-             <div> <button  type="button"  class="butSupprimer" data-id="${element.id}">Supprimer</button></div>
+             <div> <button  type="button" class="butModifier btn btn-outline-primary  " data-id="${element.id}">modifier</button></div>
+             <div> <button  type="button"  class="butSupprimer btn btn-outline-primary" data-id="${element.id}">Supprimer</button></div>
+             <div>
+             <select class="custom-select"  name="statusEdit" data-id = ${element.id} >
+                            <option value="" selected disabled >changement de status</option>
+                            <option value="todo">todo</option>
+                            <option value="in-progress">in-progress</option>
+                            <option value="done">done</option>
+                        </select>
+             </div>
+             
       </div>`
         }
 
@@ -136,6 +162,9 @@ const butMOdifer=document.querySelector("#butModifer")
 export function getBoutonsSupprimer() {
     return document.querySelectorAll(".butSupprimer");
 }
+// export function getSlectStatus(){
+//     return document.querySelectorAll(".changeStatus")
+// }
 
 
 

@@ -85,3 +85,30 @@ export async function supprimerCarte(id) {
     );
 }
 
+
+
+
+///chengment Status//
+export async function changementStatus(id,statusValue) {
+  const options = {
+  method: 'PATCH',
+   url: 'https://flowboard-api-virid.vercel.app/cards/'+id+'?password=1234',
+  headers: {
+    'X-Workspace': 'public',
+    'Content-Type': 'application/json'
+  },
+  data: {
+    status: statusValue
+  }
+}
+
+try {
+  const { data } = await axios.request(options)
+  // console.log(data)
+} catch (error) {
+  console.error(error)
+}
+  
+}
+
+

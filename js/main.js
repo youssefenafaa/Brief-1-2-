@@ -177,7 +177,6 @@ formm.addEventListener("submit", async (e) => {
         const cards = await api.recup();
         ui.afficheData(cards);
 
-        
 
 document.querySelector(".Partier-Cree").classList.add("hiden");
 document.querySelector(".cars-section").classList.remove("hiden");
@@ -207,3 +206,37 @@ butSupprimer.forEach(but => {
             }
     })
 });
+
+
+
+
+///changement Status
+//  const selectStatus= ui.getSlectStatus()
+
+  
+        // selectStatus.forEach( (Select) => {
+        //     Select.addEventListener('click',async(e)=>{
+        //         // let {data}=await api.changementStatus(e.currentTarget.dataset.id)
+        //         console.log(e.currentTarget.dataset.id)
+        //         //  console.log(selectStatus)
+        //         // if( SelectStatus.value==)
+        //     })
+            
+        // });
+        document.addEventListener("click",async (e)=>{
+         
+            let targetSelct=e.target.closest("[name=statusEdit]")
+         
+            if(targetSelct && targetSelct.value){
+         
+                let NewvalueSatus=targetSelct.value
+         
+                let idCards=e.target.dataset.id
+         
+                await api.changementStatus(idCards,NewvalueSatus)
+         
+                const cards = await api.recup();
+         
+                ui.afficheData(cards);
+          }
+        })
